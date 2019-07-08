@@ -9,14 +9,14 @@ node{
    }
    stage('Deploy to Tomcat'){
       
-      sshagent(['tomcat-dev']) {
-    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@34.230.46.253:/home/ec2-user/apps/tomcat/apache-tomcat-9.0.21/webapps/'
+      sshagent(['keval']) {
+    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@3.83.33.3:/home/ec2-user/apps/tomcat/apache-tomcat-9.0.21/webapps/'
 }
    }
    stage('Email Notification'){
       mail bcc: '', body: '''Hi Welcome to jenkins email alerts
       Thanks
-      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'kevalpra1994@gmail.com'
+      keval''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'kevalpra1994@gmail.com'
    
 
 }
